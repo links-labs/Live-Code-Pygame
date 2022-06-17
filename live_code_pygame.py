@@ -131,7 +131,7 @@ class ThreadedRenderer(threading.Thread):
         self.screen = pygame.display.set_mode(size)
         self.clock = pygame.time.Clock()
 
-        # Start the loop
+        # Start the thread, which starts the loop
         self.start()
 
     def _step(self):
