@@ -148,18 +148,24 @@ class ThreadedRenderer(threading.Thread):
 
     def run(self):
         """ The function that is Threaded. DO NOT call this function."""
-        while self.running is True:
-            self.clock.tick(self.fps)
-            for event in pygame.event.get():
-                if event.type in self.events:
-                    self.events[event.type](event)
-                elif event.type == pygame.QUIT: # May be overridden
-                    self.running = False
-            self._step()
-            self._draw()
+        try:
+            while self.running is True:
+                self.clock.tick(self.fps)
+                for event in pygame.event.get():
+                    if event.type in self.events:
+                        self.events[event.type](event)
+                    elif event.type == pygame.QUIT: # May be overridden
+                        self.running = False
+                self._step()
+                self._draw()
+        except: # Fail gracefully instead of freezing if we have an error
+            self.error = "".join(format_exception(*exc_info()))
+            print(self.error)
+            self.running = False
         # Below will be executed whenever the thread quits gracefully or kill is called
         pygame.quit()
         ThreadedRenderer.instantiated = False
+        return self.error
 
     def kill(self):
         """ Gracefully halt the thread and shutdown Pygame.
