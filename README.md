@@ -21,6 +21,21 @@ This example includes a basic ThreadedRenderer for pygame, which is really
 the core of the concept. The two additional classes are simply provided to
 serve as examples and test cases.
 
+### Relevance to the Links project
+
+As of 2022, Pygame is the current API we're using in Python for simpler prototyping.
+
+While working on a GridTree prototype (the background structure within the Filing Tree),
+we found it would be handy for added control and debugging of our tree if we could
+effect live changes to what was going on on the screen via code, rather than having to
+create a UI button for every desirable action. Essentially, we wanted to unblock the
+IPython interpreter so we could have terminal control of our GUI - a desirable trait
+for the eventual end-product anyway - and threading worked to accomplish this with Pygame in
+our prototype system.
+
+The end result was pleasant, and could be useful to other learners, so
+we decided to post it here as a side-product of our work. Enjoy.
+
 ### Instructions
 
 It defeats the purpose of this example to try to simply execute it alone, like this:
