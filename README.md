@@ -1,6 +1,6 @@
 # Live Code Pygame
 
-### Description
+## Description
 
 This is an example of how to execute pygame in a separate thread, so that
 control is returned to the interpreter running in the terminal. This gives
@@ -21,7 +21,7 @@ This example includes a basic ThreadedRenderer for pygame, which is really
 the core of the concept. The two additional classes are simply provided to
 serve as examples and test cases.
 
-### Relevance to the Links project
+## Relevance to the Links project
 
 As of 2022, Pygame is the current API we're using in Python for simpler prototyping.
 
@@ -36,7 +36,7 @@ our prototype system.
 The end result was pleasant, and could be useful to other learners, so
 we decided to post it here as a side-product of our work. Enjoy.
 
-### Instructions
+## Instructions
 
 It defeats the purpose of this example to try to simply execute it alone, like this:
 
