@@ -10,7 +10,10 @@ DESCRIPTION:
     This is an example of how to execute pygame in a separate thread, so that
     control is returned to the interpreter running in the terminal. This gives
     you the ability to change your pygame code on the fly, as you can typically
-    do with other code in the terminal. The ability to edit code while the event
+    do with other code in the terminal, and immediately see the results on the
+    screen.
+    
+    The ability to edit code while the event
     loop is running is like that given by the Processing coding platform, but
     this is not so complex and flexible as that.
 
@@ -276,7 +279,7 @@ Some additional notes:
     you have changed as code, as if you were editing, live, the file controlling
     the renderer. This might be possible, but would be very difficult, and
     would likely require the introspection module and would be a recursive mess.
-    My initial, non-functional test of this would look like:
+    My initial, non-functional test of any kind of save feature would look like:
 
 import pickle
 
