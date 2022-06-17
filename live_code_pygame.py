@@ -2,7 +2,7 @@
 live_code_pygame.py
 Author: Nathan Tibbetts
 Date: 15-16 June 2022
-License: Open Source, free to use, modify, distribute, etc.
+License: To be determined, but Open Source, free to use, modify, distribute, etc.
 GitHub: 
 
 DESCRIPTION:
