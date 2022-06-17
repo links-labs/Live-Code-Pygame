@@ -160,6 +160,8 @@ class ThreadedRenderer(threading.Thread):
                         self.running = False
                 self._step()
                 self._draw()
+                # Could catch errors in here if we had a change queue to look
+                #   at to revert changes from
         except: # Fail gracefully instead of freezing if we have an error
             self.error = "".join(format_exception(*exc_info()))
             print(self.error)
