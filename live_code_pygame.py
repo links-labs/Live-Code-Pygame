@@ -247,7 +247,7 @@ class Orbiter(Instance):
         self.dist = dist # Distance from center of orbit, in pixels
         self.rot = rot # Angular velocity, in radians per frame
         self.radius = radius # Size of the object, in pixels
-        self.color = WHITE # Color of the object, (r, g, b) from 0-255 each
+        self.color = color # Color of the object, (r, g, b) from 0-255 each
 
     def update(self):
         """ What to do every step."""
