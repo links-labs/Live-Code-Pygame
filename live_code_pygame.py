@@ -84,6 +84,8 @@ INSTRUCTIONS:
 import threading
 import pygame
 from math import pi, sin, cos
+from sys import exc_info
+from traceback import format_exception
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
