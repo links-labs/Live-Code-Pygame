@@ -127,11 +127,8 @@ class ThreadedRenderer(threading.Thread):
         self.background = background
         self.events = event_functions
         self.running = True
-
-        # Set up Pygame
-        pygame.init()
-        self.screen = pygame.display.set_mode(size)
-        self.clock = pygame.time.Clock()
+        self.error = None
+        self.display_size = size
 
         # Start the thread, which starts the loop
         self.start()
@@ -150,6 +147,12 @@ class ThreadedRenderer(threading.Thread):
 
     def run(self):
         """ The function that is Threaded. DO NOT call this function."""
+        # Set up Pygame
+        pygame.init()
+        self.screen = pygame.display.set_mode(self.display_size)
+        self.clock = pygame.time.Clock()
+
+        # Start the main game loop
         try:
             while self.running is True:
                 self.clock.tick(self.fps)
@@ -257,8 +260,14 @@ class Orbiter(Instance):
             self.angle -= 2*pi
         elif self.angle < 0:
             self.angle += 2*pi
-        self.rect.x = self.center[0]+self.dist*cos(self.angle)-self.radius
-        self.rect.y = self.center[1]+self.dist*sin(self.angle)-self.radius
+        if hasattr(self.center, 'rect'):
+            x = self.center.rect.x
+            y = self.center.rect.y
+        else:
+            x = self.center[0]
+            y = self.center[1]
+        self.rect.x = x + self.dist*cos(self.angle) - self.radius
+        self.rect.y = y + self.dist*sin(self.angle) - self.radius
         self.rect.w = self.radius*2
         self.rect.h = self.radius*2
 
